@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  background-size: cover;
+}
+.start {
+  width: 100vw;
+  height: 108vh;
+  background: rgba(0, 0, 0, 0.801);
+  position: absolute;
+  display: flex;
+  z-index: 4;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-text {
+  color: #1fcaca;
+  text-shadow: 0 0 10px #1fcaca, 0 0 15px #1fcaca;
+  text-align: center;
+  font-family: "Carter One", cursive;
+  font-size: 40px;
+  cursor: pointer;
+}
+.boxs {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+  margin-top: 3%;
+  perspective: 1000px;
+}
+.box.flip {
+  transform: rotateY(180deg);
+}
+.front-img,
+.back-img {
+  background: rgb(31, 202, 202);
+  background: linear-gradient(
+    180deg,
+    rgba(31, 202, 202, 1) 12%,
+    rgba(70, 64, 51, 1) 100%
+  );
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: contain;
+  position: absolute;
+  backface-visibility: hidden;
+}
+.time {
+  color: #1fcaca;
+  text-shadow: 0 0 10px #1fcaca, 0 0 15px #1fcaca;
+  font-family: "Carter One", cursive;
+  font-size: 40px;
+}
+.game-over {
+  width: 100%;
+  height: 108vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.863);
+}
+.remove {
+  display: flex;
+}
+.over-text {
+  color: #1fcaca;
+  text-shadow: 0 0 10px #1fcaca, 0 0 15px #1fcaca;
+  text-align: center;
+  font-family: "Carter One", cursive;
+  font-size: 40px;
+}
+.box {
+  padding: 1rem;
+  position: relative;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.box:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+.front-img {
+  padding: 1rem;
+}
+.back-img {
+  transform: rotateY(180deg);
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+@media screen and (max-width: 450px) {
+  .boxs {
+    grid-template-columns: 200% 200% 200%;
+    grid-template-rows: 140px 140px 140px 140px;
+    column-gap: 190%;
+    margin-left: -16rem;
+  }
+  .box {
+    padding: 5px;
+  }
+
+  .front-img,
+  .back-img {
+    background: rgb(31, 202, 202);
+    background: linear-gradient(
+      180deg,
+      rgba(31, 202, 202, 1) 12%,
+      rgba(70, 64, 51, 1) 100%
+    );
+    width: 25vw;
+    height: 100%;
+
+    border-radius: 10px;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  body {
+    background-size: 200vh;
+  }
+}
